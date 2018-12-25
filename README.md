@@ -1,13 +1,14 @@
-# Chrome Extension Boilerplate built with React + Parcel
-Source code of article which is published in Medium, you can read it from:
-https://medium.freecodecamp.org/building-chrome-extensions-in-react-parcel-79d0240dd58f
+## Building a Chrome extension to paste any link and it's searchable by the name or link.
+
+ >  It will be really useful while applying for job where we have to copy paste lot of link like linkedIn profile, twitter link and others
+
 
 # CLI Commands
 
 ## Development
 
 ```Shell
-npm run watch
+yarn dev
 ```
 
 Starts the watcher for building project when a file changed.
@@ -15,7 +16,7 @@ Starts the watcher for building project when a file changed.
 ## Building
 
 ```Shell
-npm run build
+yarn deploy
 ```
 
-Preps your app for deployment. Minifies all files, piping them to the `src/build` folder.
+Preps your app for deployment. Minifies all files, piping them to the `build` folder.
