@@ -1,0 +1,36 @@
+html {
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.floated {
+  float: left;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    min-height: 200px;
+    width: 400px;
+}
+
+#root {
+    position: relative;
+    width: 100%;
+}
+
+.container {
+    padding: 10px;
+}

@@ -1,18 +1,30 @@
 {
-  "name": "extension-name",
+  "name": "paste-any",
   "version": "0.1.0",
-  "description": "Description",
+  "description": "Organise the link which are easy to paste",
   "main": "src/js/main.js",
   "scripts": {
-    "build": "parcel build src/js/main.js -d src/build/ -o main.js",
-    "watch": "parcel watch src/js/main.js -d src/build/ -o main.js"
+    "build": "parcel build src/popup.html src/content-script.js -d build/ --no-source-maps",
+    "clean": "rm -rf build",
+    "deploy": "yarn clean && yarn build && yarn copyall",
+    "copy-manifest": "cp manifest.json build/",
+    "copy-logo": "cp icon.png build/",
+    "watch": "parcel watch src/popup.html src/content-script.js -d build/",
+    "dev": "yarn watch",
+    "copyall": "yarn copy-manifest && yarn copy-logo"
   },
-  "author": "Atakan Goktepe",
+  "author": "Avinash Sivaraman",
   "dependencies": {
+    "@material-ui/core": "^3.7.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
     "parcel-bundler": "^1.6.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "prop-types": "^15.6.2",
+    "react": "16.7.0",
+    "react-dom": "16.7.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3"
   }
 }
