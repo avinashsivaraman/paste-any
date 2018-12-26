@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import React, { Component } from 'react';
+import Button from 'react-bootstrap/lib/Button';
+import Form from 'react-bootstrap/lib/Form';
+import Row from 'react-bootstrap/lib/Row';
 import '../../css/Form.css';
 
-export default class Form extends Component {
+export default class CustomForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,32 +19,29 @@ export default class Form extends Component {
       })
   }
 
-  buttonClicked = () => {
+  buttonClicked = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
     console.log(this.state)
   }
   render() {
     return (
-      <div className="entry-app-update container">
-        <TextField
-          id="standard-name"
-          label="Name"
-          className='Field-Name'
-          value={this.state.name}
-          onChange={event => this.handleChange('name', event)}
-          margin="normal"
-        />
-        <TextField
-          id="standard-name"
-          label="URL"
-          className='URL-name'
-          value={this.state.url}
-          onChange={event => this.handleChange('url', event)}
-          margin="normal"
-        />
-        <Button variant="contained" color="primary" onClick={this.buttonClicked}>
+      <Row className="entry-app-update container">
+        <Form onSubmit={this.buttonClicked}>
+          <Form.Group controlId="Name">
+            <Form.Label>Name</Form.Label>
+            <Form.Control type="text" onChange={event => this.handleChange('name', event)} value={this.state.name} placeholder="Enter a Name for the URL" />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicURL">
+            <Form.Label>URL</Form.Label>
+            <Form.Control type="text" onChange={event => this.handleChange('url', event)} value={this.state.url} placeholder="Enter the URL" />
+          </Form.Group>
+          <Button variant="primary" type="submit" >
             Submit
-        </Button>
-      </div>
+          </Button>
+        </Form>
+      </Row>
     )
   }
 }

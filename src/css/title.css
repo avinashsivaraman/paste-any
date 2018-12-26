@@ -1,0 +1,6 @@
+.titlebar {
+    background-color: #424242;
+    color: whitesmoke;
+    display: grid;
+    grid-template-columns: 1fr 200px;
+}
